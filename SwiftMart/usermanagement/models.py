@@ -13,7 +13,7 @@ class UserManager(BaseUserManager):
         
         email = self.normalize_email(email)
 
-        user = self.model(first_name=first_name,last_name=last_name,email=email,phone_number=phone_number,profile_pic=profile_pic,**extrafields)
+        user = self.model(first_name=first_name,last_name=last_name,email=email,phone_number=phone_number,profile_pic=profile_pic,password=password,**extrafields)
 
         user.set_password(password)
 
@@ -24,14 +24,14 @@ class UserManager(BaseUserManager):
 
     def create_superuser(self,email,phone_number,first_name,last_name,password=None,profile_pic=None,**extrafields):
         extrafields.setdefault('is_superuser',True)
-        return self.create_user(first_name=first_name,last_name=last_name,email=email,phone_number=phone_number,profile_pic=profile_pic,**extrafields)
+        return self.create_user(first_name=first_name,last_name=last_name,email=email,phone_number=phone_number,profile_pic=profile_pic,password=password,**extrafields)
 
 class User(AbstractUser):
 
     username=None
     email=models.EmailField(('email address'),unique=True)
     phone_number=PhoneNumberField(('phone number'),unique=True)
-    profile_pic=models.ImageField(('profile pic'),upload_to='static/ProfilePics/',blank=None,null=True)
+    profile_pic=models.ImageField(('profile pic'),upload_to='static/profilepic/',blank=None,null=True)
     is_staff=models.BooleanField(('staff status'),default=True)
     is_active=models.BooleanField(('active status'),default=True)
     is_admin=models.BooleanField(('admin status'),default=False)
