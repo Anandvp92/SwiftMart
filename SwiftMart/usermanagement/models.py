@@ -31,7 +31,7 @@ class User(AbstractUser):
     username=None
     email=models.EmailField(('email address'),unique=True)
     phone_number=PhoneNumberField(('phone number'),unique=True)
-    profile_pic=models.ImageField(('profile pic'),upload_to='StaticFolder/ProfilePics/',blank=None,null=True)
+    profile_pic=models.ImageField(('profile pic'),upload_to='static/ProfilePics/',blank=None,null=True)
     is_staff=models.BooleanField(('staff status'),default=True)
     is_active=models.BooleanField(('active status'),default=True)
     is_admin=models.BooleanField(('admin status'),default=False)
