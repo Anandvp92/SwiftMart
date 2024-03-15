@@ -6,13 +6,15 @@
 
 <div class="container">
     <h1>Login</h1>
-    <form>
+    <form autocomplete="off" method="post" action="" enctype="multipart/form-data">
+        {% for field in userform %}
         <div class="form-control">
-            <input type="text" required name="email">
-            <label class="form-control label">Email</label>
-        </div>      
+         <label>{{field.label}}</label>
+        {{field}}
+        </div>    
+        {%endfor%}  
         <button class="btn">Login</button>
-        <p class="text">Don't have an account? <a href="#">Register</a></p>
+        <p class="text">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
     </form>
 </div>
 {%endblock%}

@@ -10,6 +10,10 @@ def register(request):
     if request.method=="POST":
        user=UserForm(request.POST)
        if user.is_valid():
+           password=user.cleaned_data['password']
+           confirm_password=user.cleaned_data['confirm_password']
+           if password!=confirm_password:
+               raise ValueError("Password is not matching")
            newuser=user.save(commit=False) 
            newuser.set_password(user.cleaned_data.get('password'))
            newuser.save()
