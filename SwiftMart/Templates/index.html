@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+
+
+
+{%block content %}
+
+<h1>{{user.email}}</h1>
+
+
+<button type="submit"><a href="{% url 'logoutuser' %}">Logout</a></button>
+
+{%endblock %}

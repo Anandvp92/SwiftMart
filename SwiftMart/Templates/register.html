@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+
+
+{%block content %}
+
+<div class="container">
+    <h1>Register</h1>
+    <form method="post" enctype="multipart/form-data" action="">
+        {% for user in userform %}
+        <div class="form-control">
+           <label>{{user.label}}</label> 
+            {{user}}
+        </div>   
+        {%endfor%}  
+        <button class="btn">Login</button>
+        <p class="text">Have an account? <a href="#">Login</a></p>    
+    </form>
+</div>
+{%endblock%}
