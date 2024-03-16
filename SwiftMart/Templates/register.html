@@ -4,12 +4,16 @@
 {%block content %}
 
 <div class="container">
-    <h1>Register</h1>
+    <h1 class="header">Register</h1>
     <form method="post" enctype="multipart/form-data" action="">
+        {%csrf_token%}
         {% for field in userform %}
         <div class="form-control">
            <label>{{field.label}}</label> 
             {{field}}
+            {% if field.errors%}
+            {{field.errors}}
+            {%endif%}
         </div>   
         {%endfor%}  
         <button class="btn">Submit</button>

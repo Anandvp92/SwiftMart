@@ -5,15 +5,23 @@
 {%block content %}
 
 <div class="container">
-    <h1>Login</h1>
+    <h1 class="header">Login</h1>
     <form autocomplete="off" method="post" action="" enctype="multipart/form-data">
+        {%csrf_token%}
         {% for field in userform %}
         <div class="form-control">
          <label>{{field.label}}</label>
-        {{field}}
-        </div>    
-        {%endfor%}  
+        {{field}}        
+        </div>           
+        {%endfor%}         
         <button class="btn">Login</button>
+        {%if messages%}
+        {%for message in messages%}
+        <div id="alertmsg">
+        {{ message }}
+        </div>
+        {%endfor%}
+        {%endif%}
         <p class="text">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
     </form>
 </div>
