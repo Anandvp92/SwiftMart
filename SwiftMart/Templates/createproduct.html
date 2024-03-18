@@ -16,7 +16,15 @@
 </div>
 {%endfor%}
 
-<button type="submit"></button>
+<button type="submit">Submit</button>
 </form>
+
+{% if message %}
+
+<div>
+{{message}}
+</div>      
+
+{%endif%}
 
 {%endblock %}

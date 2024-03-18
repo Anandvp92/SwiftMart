@@ -27,4 +27,11 @@ def productlist(request):
 
 
 def createproduct(request):
-    return render(request,'createproduct.html',{'productform':ProductForm})
+    if request.method=="POST":
+        product=ProductForm(request.POST,request.FILES)
+        if product.is_valid():
+            product.save()
+            return render(request,"createproduct.html",{"productform":ProductForm(),"message":"Your product has been created!"})
+    else:
+        product=ProductForm()
+    return render(request,'createproduct.html',{'productform':product})
