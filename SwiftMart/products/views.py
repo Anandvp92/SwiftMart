@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from .forms import ProductForm
 # Create your views here.
 
 def indexpage(request):
@@ -23,3 +24,7 @@ def cartpage(request):
 @login_required
 def productlist(request):
     return render(request,'productlist.html')
+
+
+def createproduct(request):
+    return render(request,'createproduct.html',{'productform':ProductForm})
