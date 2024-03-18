@@ -19,6 +19,7 @@ def register(request):
                 newuser=user.save(commit=False) 
                 newuser.set_password(user.cleaned_data.get('password'))
                 newuser.save()
+                messages.success(request,"User is created Please Login")
                 return redirect('login')
     else:
         user=UserForm()

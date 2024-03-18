@@ -2,3 +2,64 @@
     padding: 0;
     margin: 0;
 }
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.btn-container{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+
+.inputfields{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+label{
+    padding-right: 25px;
+}
+
+
+.form-links{
+    display: flex;
+    align-items: flex-end;
+
+
+}
+
+input{
+    padding-right: 35px;
+}
+
+#alertmsg ,.errorlist{
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+#profile-pic{
+    height: 50px;
+    width: auto;
+    clip-path: circle(40%);
+}
+
+
+

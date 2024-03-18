@@ -8,16 +8,22 @@
     <form method="post" enctype="multipart/form-data" action="">
         {%csrf_token%}
         {% for field in userform %}
-        <div class="form-control">
-           <label>{{field.label}}</label> 
+        <div class="form-control" style="margin-top: 10px;" >
+            <div class="inputfields">
+            <label>{{field.label}}</label> 
             {{field}}
+            </div>
             {% if field.errors%}
             {{field.errors}}
             {%endif%}
         </div>   
         {%endfor%}  
-        <button class="btn">Submit</button>
+        <div  class="btn-container">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="form-links">
         <p class="text">Have an account? <a href="{% url 'login' %}">Login</a></p>    
+        </div>
     </form>
 </div>
 {%endblock%}

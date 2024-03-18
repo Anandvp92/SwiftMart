@@ -9,20 +9,37 @@
     <form autocomplete="off" method="post" action="" enctype="multipart/form-data">
         {%csrf_token%}
         {% for field in userform %}
-        <div class="form-control">
-         <label>{{field.label}}</label>
-        {{field}}        
+        <div class="form-control" style="margin-top: 10px;">
+        <div class="inputfields">
+      
+        <label>{{field.label}}</label>
+              
+        {{field}}  
+        </div>
+             
         </div>           
-        {%endfor%}         
-        <button class="btn">Login</button>
+        {%endfor%} 
+
         {%if messages%}
         {%for message in messages%}
         <div id="alertmsg">
         {{ message }}
         </div>
         {%endfor%}
-        {%endif%}
-        <p class="text">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+        {%endif%}   
+
+        <div class="btn-container">
+            <button type="submit" class="btn btn-success">Login</button>
+        </div>     
+   
+        
+        <div class="form-links">
+            <p class="text">Don't have an account? <a href="{% url 'register' %}">Register</a>
+            Forgot Password? <a href="{% url 'register' %}">Reset Password</a>
+            </p>
+
+        </div>
+        
     </form>
 </div>
 {%endblock%}
