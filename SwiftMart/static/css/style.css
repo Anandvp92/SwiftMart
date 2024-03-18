@@ -55,11 +55,12 @@ input{
 }
 
 
-#profile-pic{
+#profile-pic,.navbar-brand{
     height: 50px;
     width: auto;
     clip-path: circle(40%);
 }
+
 
 
 

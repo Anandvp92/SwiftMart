@@ -47,11 +47,10 @@ def loginuser(request):
 
 
 @login_required
-def indexpage(request):
-    return render(request,'index.html')
-
-
-
 def logoutuser(request):
     logout(request)
     return redirect('login')
+
+
+def restpassword(request):
+    return render(request,'resetpassword.html',{})
