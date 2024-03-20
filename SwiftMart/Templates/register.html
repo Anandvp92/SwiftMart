@@ -3,27 +3,16 @@
 
 {%block content %}
 
-<div class="container">
-    <h1 class="header">Register</h1>
-    <form method="post" enctype="multipart/form-data" action="">
-        {%csrf_token%}
-        {% for field in userform %}
-        <div class="form-control" style="margin-top: 10px;" >
-            <div class="inputfields">
-            <label>{{field.label}}</label> 
-            {{field}}
-            </div>
-            {% if field.errors%}
-            {{field.errors}}
-            {%endif%}
-        </div>   
-        {%endfor%}  
-        <div  class="btn-container">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-        <div class="form-links">
-        <p class="text">Have an account? <a href="{% url 'login' %}">Login</a></p>    
-        </div>
+<div class="flex justify-center items-center h-screen m-25">
+    <form class="block max-w-sm w-full " method="post" action="" autocomplete="off">
+      <h1 class="flex justify-center items-center text-4xl">Login</h1>
+      {% csrf_token %}
+      {% for user in userform %}
+      <div class="mb-5">
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">{{user.label}}</label>
+        {{user}}
+      </div> 
+      {%endfor%}   
     </form>
-</div>
+  </div>
 {%endblock%}
