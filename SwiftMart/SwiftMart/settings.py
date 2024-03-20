@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'usermanagement.apps.UsermanagementConfig',
     'rest_framework',
-    'products.apps.ProductsConfig'
+    'products.apps.ProductsConfig',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
